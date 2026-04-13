@@ -1,0 +1,41 @@
+#5.1
+
+import os
+
+def find_pdf_size(top):
+    a = 0
+    for root, dirs, files in os.walk(top): 
+        for name in files:
+            if name.lower().endswith(".pdf"):
+                a += os.path.getsize(os.path.join(root, name))
+    print("The total size of PDF files in {} directory is {}".format(top, a))
+
+#5.2
+
+import datetime
+
+def print_working_days(date1, date2):
+    
+    day1 = datetime.date.fromisoformat(date1)
+    day2 = datetime.date.fromisoformat(date2)
+    d = datetime.timedelta(days = 1)   
+    a = 0
+    
+    while day1 < day2:
+        if day1.weekday() < 5:   
+            print(day1)
+            a += 1
+        day1 += d
+        
+    print (a)
+        
+print_working_days('1990-09-01', '1990-10-31')
+
+#5.3
+
+import random
+
+start=0
+
+for i in range (20):
+    print(start+sum(i for i in random.choices([-1,1], k=100)))
