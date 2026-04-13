@@ -35,7 +35,17 @@ print_working_days('1990-09-01', '1990-10-31')
 
 import random
 
-start=0
+def randomwalk(start):
+    return start + sum(i for i in random.choices([-1,1], k=100))
+    
+d=dict()
+for i in range (200):
+    a = randomwalk(0)
+    if a not in d:
+        d[a]=1
+    else:
+        d[a] += 1
+        
+for v in sorted(d):
+    print (v, d[v])
 
-for i in range (20):
-    print(start+sum(i for i in random.choices([-1,1], k=100)))
