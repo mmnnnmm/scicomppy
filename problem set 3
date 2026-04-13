@@ -1,0 +1,53 @@
+#3.1
+name = "imienazwisko"
+name1 = "|"
+a = "+"
+for c in name:
+    name1 += " " + c + " |"
+    a += "---+" 
+print(a)
+print(name1)
+print(a)
+
+#3.2
+#1
+i=1
+while i <= 40:
+    if i == 13:
+        pass
+    elif i%5 == 0 and i%7 == 0:
+        print(f"{i} is divided by 5 and 7")
+    elif i%5 == 0:
+        print(f"{i} is divided by 5")
+    elif i%7 == 0:
+        print(f"{i} is divided by 7")
+    else:
+        print(f"{i} is not important")
+    i += 1
+#2
+for i in range (1,41):
+    if i == 13:
+        pass
+    elif i%5 == 0 and i%7 == 0:
+        print(f"{i} is divided by 5 and 7")
+    elif i%5 == 0:
+        print(f"{i} is divided by 5")
+    elif i%7 == 0:
+        print(f"{i} is divided by 7")
+    else:
+        print(f"{i} is not important")
+
+#3.3
+import math
+
+n = 2022
+x = round(math.pi, 5)   
+word = "Python"
+polish = "książka"  
+
+with open("vars.txt", "w", encoding="utf-8") as outfile:
+    outfile.write("{}\n{}\n{}\n{}\n". format(str(n), str(x), word, polish))
+
+with open("vars.txt", "r", encoding="utf-8") as infile:
+    text = infile.read()
+    print(text)
