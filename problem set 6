@@ -1,0 +1,55 @@
+import math
+class Vector:
+    counter = 0
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+        Vector.counter += 1
+        
+    def __del__ (self):
+        Vector.counter -= 1
+    
+    def __repr__(self): 
+        return f"Vector({self.x}, {self.y}, {self.z})"
+
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y and self.z == other.z
+
+    def __ne__(self, other):       
+        return not self == other
+
+    def __add__(self, other): 
+        return Vector(self.x + other.x, self.y + other.y,self.z + other.z)
+
+    def __sub__(self, other):
+        return Vector(self.x - other.x, self.y - other.y,self.z - other.z)
+
+    def __mul__(self, other): 
+        
+        return self.x * other.x + self.y * other.y + self.z * other.z
+
+    def cross(self, other):
+        a = self.y * other.z - self.z *other.y
+        b = self.z * other.x - self.x * other.z
+        c = self.x * other.y - other.x * self. y
+        return Vector(a, b, c)
+
+    def length(self):
+        return math.sqrt(self.x**2 + self.y**2 + self.z**2) 
+        
+    def __hash__(self):   
+        return hash((self.x, self.y, self.z))
+    
+v = Vector(1, 2, 3)
+w = Vector(2, -3, 2)
+assert v != w
+assert v + w == Vector(3, -1, 5)
+assert v - w == Vector(-1, 5, 1)
+assert v * w == 2
+assert v.cross(w) == Vector(13, 4, -7)
+assert v.length() == math.sqrt(14)
+S = set([v, v, w])
+assert len(S) == 2
+
+print("Tests passed")
