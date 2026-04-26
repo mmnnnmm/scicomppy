@@ -1,0 +1,50 @@
+#7.1
+
+from zad6 import Vector
+    
+def normal(a,b):
+    c = Vector.cross(a,b)
+    if c != Vector(0,0,0):
+        return Vector(c.x/Vector.length(c),c.y/Vector.length(c),c.z/Vector.length(c))
+    else:
+        raise ValueError("vectors are parallel")
+        
+a = Vector(1,2,3)
+b = Vector(2,4,6)
+print(normal(a, b))
+
+
+#7.2
+
+import itertools
+import random
+
+#1
+
+iter01 = itertools.cycle([0,1])
+for i in range(10):
+    print(next(iter01))
+print("koniec")  
+
+#2
+
+def iter2():
+    while True:
+        yield random.randint(0,1)
+for i in range(10):
+    print(next(iter2()))
+print("koniec")
+
+#3
+
+iter3 = itertools.cycle([0,1,0,-1])
+for i in range(10):
+    print(next(iter3))
+print("koniec")
+
+
+
+
+
+
+
