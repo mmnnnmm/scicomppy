@@ -1,0 +1,40 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+#9.1
+
+
+x = np.linspace(0,10,1000)
+y = np.sin(x)
+plt.plot(x,y,'r-',linestyle="solid", label = "sin(x)")
+z = np.cos(x)
+plt.plot(x,z,'g--',linestyle="dashed", label="cos(x)")
+w = np.exp(-x)
+plt.plot(x,w,'b:',linestyle="dotted", label="exp(-x)")
+plt.legend()
+plt.show()
+
+#9.2
+
+
+x = np.random.rand(100)
+y = np.random.rand(100)
+def color(d):
+    if d<=1:
+        return "red"
+    else:
+        return "green"
+colors = np.where((x**2+y**2<1),'r','g')
+area = 10*(x+y)
+plt.scatter(x, y, s= area, c=colors)
+plt.show()
+
+#9.3
+
+x = np.linspace(-2, 2, 100)
+y = np.linspace(-2, 2, 100)
+xx, yy = np.meshgrid(x,y)
+print(xx)
+data = np.sqrt((xx-1)**2+yy**2)+np.sqrt((xx+1)**2+yy**2)
+plt.imshow(data, cmap='hot', interpolation="nearest")
+plt.colorbar()
