@@ -1,0 +1,16 @@
+import numpy as np
+import pandas as pd
+
+#10.2
+a = np.arange('2026-05-01', '2026-06-01', dtype='datetime64[D]')
+b = np.concatenate([[10], np.random.choice(np.array([-0.1, 0.1]), size=30)])
+price = np.cumsum(b)
+
+print(pd.Series(data=price, index=a, name="stock price"))
+
+#10.3
+a = {"Name": ["Hydrogen","Helium","Lithium","Beryllium","Boron","Carbon","Nitrogen","Oxygen","Fluorine","Neon"],
+    "Symbol": ["H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne"],
+    "Weight": [1, 4, 6, 9, 10, 12,  14, 15, 18, 20]}
+     
+print(pd.DataFrame(a, index=range(1, 11)))
